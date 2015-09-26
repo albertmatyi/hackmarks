@@ -1,4 +1,23 @@
 <template name="home">
+
+    <h2 class="title">
+        <span class="user-name">
+            {{#if user.services.twitter.profile_image_url }}
+                <img src="{{user.services.twitter.profile_image_url }}" alt=""/>
+            {{/if}}
+        </span>
+        <span class="user-name">
+            {{user.profile.name}}
+        </span>
+        @
+        <span class="team-name">
+            {{team.name}}
+        </span>
+    </h2>
+    {{>schedule}}
+</template>
+
+<template name="schedule">
     <div class="row">
         <div class="col-lg-6 text-center">
             <li>
