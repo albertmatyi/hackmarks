@@ -3,7 +3,7 @@
    * ENVIRONMENTS
    * =================
    */
-  
+
   // Define globals exposed by modern browsers.
   "browser": true,
   // Define globals exposed by jQuery.
@@ -14,7 +14,7 @@
    * ENFORCING OPTIONS
    * =================
    */
-  
+
   // Force all variable names to use either camelCase style or UPPER_CASE
   // with underscores.
   "camelcase": true,
@@ -60,47 +60,48 @@
    * RELAXING OPTIONS
    * =================
    */
-  
+
   // Suppress warnings about == null comparisons.
   "eqnull": true,
   "predef": [
-	// global
-	"confirm",
-	"console",
-	"alert",
-	"chrome",
-	"$",
-	"detectr",
-	"MediaStreamTrack",
-	// meteor
-	"Template",
-	"Package",
-	"Meteor",
-	"Session",
-	"Tracker",
-	"Deps",
-	"HTTP",
-	"Random",
-	"WebApp",
-	"Blaze",
-	"EJSON",
-	"UI",
-	"Tinytest",
-	"Template",
-	"UI",
-	"Npm",
-	"_",
-	// packages
-	"Router",
-	"Alerts",
-	"Snap",
-	"mina",
-	"FastClick",
-	"Accounts",
-	"moment",
-	// app globals
-	"App",
-	"TracksCollection",
-	"_App"
+    // global
+    "confirm",
+    "console",
+    "alert",
+    "chrome",
+    "$",
+    "detectr",
+    "MediaStreamTrack",
+    // meteor
+    "Template",
+    "Package",
+    "Meteor",
+    "Session",
+    "Tracker",
+    "Deps",
+    "HTTP",
+    "Random",
+    "WebApp",
+    "Blaze",
+    "EJSON",
+    "UI",
+    "Tinytest",
+    "Template",
+    "UI",
+    "Npm",
+    "_",
+    // packages
+    "Router",
+    "Alerts",
+    "Snap",
+    "mina",
+    "FastClick",
+    "Accounts",
+    "Transitioner",
+    "moment",
+    // app globals
+    "App",
+    "TracksCollection",
+    "_App"
   ]
 }

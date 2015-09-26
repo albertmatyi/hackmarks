@@ -1,0 +1,19 @@
+<head>
+    <title>Hackbang!</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8"/>
+</head>
+
+<template name="layout">
+    <div class="container">
+        <h1>hackbang!</h1>
+
+        {{#transitioner}}
+            <div class="container">
+                {{> yield}}
+            </div>
+        {{/transitioner}}
+    </div>
+</template>

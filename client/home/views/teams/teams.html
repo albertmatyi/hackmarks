@@ -1,0 +1,30 @@
+<template name="teamsChooser">
+    <div class="chooser">
+        <div class="col-xs-3">
+            <a href="{{pathFor 'teamsRegister'}}" class="register btn btn-primary">
+                Register a team
+            </a>
+        </div>
+        <div class="col-xs-3">
+            <a href="{{pathFor 'teamsJoin'}}" class="btn btn-success">
+                Join a team
+            </a>
+        </div>
+    </div>
+</template>
+
+
+<template name="teamsRegister">
+    <form action="" class="form">
+        <input type="text" placeholder="Team name"
+               class="team-name form-control"/>
+        <button class="register btn btn-primary">
+            <span class="span fa fa-check"></span>
+            Register
+        </button>
+    </form>
+</template>
+
+<template name="teamsJoin">
+
+</template>
