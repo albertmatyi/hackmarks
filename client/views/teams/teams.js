@@ -18,7 +18,7 @@ Template.teamsChooser.events({
         var teamName = $('.register.form .name').val();
 
         if (!teamName || !teamName.trim()) {
-            App.error.handle({}, 'Please provide a valid team name.')
+            App.error.handle({}, 'Please provide a valid team name.');
             throw 'up';
         }
 
@@ -26,21 +26,23 @@ Template.teamsChooser.events({
             if (err) {
                 App.error.handle(err, 'Could not register team. ' + err.message);
             } else {
-                var userId = Meteor.userId();
-                Meteor.users.update(userId, {$set: {'profile.teamId': teamId}}
-                    , function (err) {
-                        if (err) {
-                            App.error.handle(err, 'Team registered but failed to assign to user');
-                            Router.go('teamsChooser');
-                        } else {
-                            Router.go('/');
-                        }
-                    });
+                App.teams.join(teamId)
             }
         });
     }
 });
-Router.route('/teams/join', {
-    name: 'teamsJoin',
-    template: 'teamsJoin'
+
+App.component('teams').expose({
+    join: function (teamId) {
+        var userId = Meteor.userId();
+        Meteor.users.update(userId, {$set: {'profile.teamId': teamId}},
+            function (err) {
+                if (err) {
+                    App.error.handle(err, 'Team registered but failed to assign to user');
+                    Router.go('teamsChooser');
+                } else {
+                    Router.go('/');
+                }
+            });
+    }
 });

@@ -1,20 +1,30 @@
 <template name="home">
 
-    <h2 class="title">
-        <span class="user-name">
-            {{#if user.services.twitter.profile_image_url }}
-                <img src="{{user.services.twitter.profile_image_url }}" alt=""/>
-            {{/if}}
-        </span>
-        <span class="user-name">
-            {{user.profile.name}}
-        </span>
-        @
-        <span class="team-name">
-            {{team.name}}
-        </span>
-    </h2>
-    {{>schedule}}
+    <div class="mood" style="background-image: url({{team.image}});">
+        <div class="team-name">
+            @{{team.name}}
+        </div>
+        <div class="value-wrapper">
+            <div class="value">{{team.value}}</div>
+        </div>
+    </div>
+    <div class="team">
+        {{#with team}}
+            {{> teamMembers}}
+        {{/with}}
+    </div>
+    {{! >schedule}}
+</template>
+
+<template name="teamMembers">
+    <div class="team-members">
+        {{# each teamMembers }}
+            <div class="team-member">
+                <img src="{{image}}" alt="" class="user-image"/>
+                <span class="user-name">{{name}}</span>
+            </div>
+        {{/ each}}
+    </div>
 </template>
 
 <template name="schedule">

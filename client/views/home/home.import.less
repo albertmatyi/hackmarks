@@ -1,0 +1,22 @@
+.mood {
+  margin-left: -@grid-gutter-width/2;
+  margin-right: -@grid-gutter-width/2;
+  min-height: 30vh;
+  background-position: bottom;
+  background-size: cover;
+  position: relative;
+  &:after {
+    display: block;
+    content: '';
+    .position();
+    #gradient.vertical(fade(@gray, 0%), @gray);
+    z-index: 1;
+  }
+  .team-name {
+    .position(auto, auto, @padding-base-vertical, @padding-base-horizontal);
+    color: white;
+    font-size: 2em;
+    font-weight: 100;
+    z-index: 2;
+  }
+}

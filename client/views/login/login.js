@@ -45,6 +45,9 @@ Template.login.events({
     'click .cancel-register.btn': function (e) {
         Session.set('login.register', false);
     },
+    'click .twitter.btn': function (e) {
+        Meteor.loginWithTwitter();
+    },
     'submit .login.form': function (e) {
         e.preventDefault();
         if (Session.get('login.register')) {

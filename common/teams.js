@@ -9,6 +9,8 @@ App.teams.collection.allow({
     insert: function (userId, doc) {
         doc.ownerId = userId;
         doc.memberIds = [userId];
+        var idx = App.teams.collection.find().count();
+        doc.image = '/images/mood/' + (idx % 30) + '.jpg'
         var existingTeam = App.teams.collection.findOne({name: doc.name});
         if (existingTeam) {
             var reason = 'Team ' + doc.name + ' already exists. Please join it!';

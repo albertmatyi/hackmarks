@@ -1,10 +1,37 @@
 .chooser {
   position: absolute;
-  top: 20vh;
+  top: 5vh;
   .choice {
     text-align: center;
   }
   .help-text {
     text-align: center;
+  }
+}
+
+.teams-join {
+  .title {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: 100;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .teams {
+    .team {
+      text-transform: uppercase;
+      font-size: 1.2em;
+      padding: .5em;
+      border-bottom: solid 1px @brand-primary;
+      &.selected {
+        background-color: @brand-primary;
+        color: white;
+      }
+      .btn {
+        float: right;
+        margin-top: -.4em;
+      }
+    }
   }
 }
