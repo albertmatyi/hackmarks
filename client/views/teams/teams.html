@@ -1,14 +1,16 @@
 <template name="teamsChooser">
-    <div class="chooser">
-        <div class="col-xs-3">
-            <a href="{{pathFor 'teamsRegister'}}" class="register btn btn-primary">
-                Register a team
-            </a>
-        </div>
-        <div class="col-xs-3">
-            <a href="{{pathFor 'teamsJoin'}}" class="btn btn-success">
-                Join a team
-            </a>
+    <div class="row">
+        <div class="chooser col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+            <div class="choice col-xs-12 col-sm-6">
+                <a href="{{pathFor 'teamsRegister'}}" class="register btn btn-primary">
+                    Register a team
+                </a>
+            </div>
+            <div class="choice col-xs-12 col-sm-6">
+                <a href="{{pathFor 'teamsJoin'}}" class="btn btn-success">
+                    Join a team
+                </a>
+            </div>
         </div>
     </div>
 </template>
