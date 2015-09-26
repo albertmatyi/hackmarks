@@ -1,31 +1,31 @@
 <template name="teamsChooser">
     <div class="row">
-        <div class="chooser col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-            <div class="choice col-xs-12 col-sm-6">
-                <a href="{{pathFor 'teamsRegister'}}" class="register btn btn-primary">
-                    Register a team
-                </a>
-            </div>
-            <div class="choice col-xs-12 col-sm-6">
-                <a href="{{pathFor 'teamsJoin'}}" class="btn btn-success">
+        <div class="chooser col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+            {{>paneLogo}}
+            <form class="row register form">
+                <div class="form-group">
+                    <div class="help-text">Please register / choose your team</div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="name"
+                           placeholder="Team name"
+                           class="name form-control"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class=" form-control register btn btn-primary">
+                        <span class="span fa fa-check"></span>
+                        Register
+                    </button>
+                </div>
+                <hr/>
+                <a href="{{pathFor 'teamsJoin'}}" class=" form-control join-team btn btn-success">
                     Join a team
                 </a>
-            </div>
+            </form>
         </div>
     </div>
 </template>
 
-
-<template name="teamsRegister">
-    <form class="register form">
-        <input type="text" placeholder="Team name"
-               class="team-name form-control"/>
-        <button class="register btn btn-primary">
-            <span class="span fa fa-check"></span>
-            Register
-        </button>
-    </form>
-</template>
 
 <template name="teamsJoin">
 

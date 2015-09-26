@@ -18,7 +18,7 @@ var login = function () {
     var user = getData();
     Meteor.loginWithPassword(user.email, user.password, function (err) {
         if (err) {
-            App.error.handle(err, err.message);
+            App.error.handle(err, 'Invalid login data.' + err.message);
         } else {
             Router.go('home');
         }
@@ -26,9 +26,13 @@ var login = function () {
 };
 var register = function () {
     var user = getData();
+    if (!user.email.trim || !user.password.trim() || !user.profile.name) {
+        App.error.handle({}, 'Please provide valid user data.');
+        return;
+    }
     Accounts.createUser(user, function (err) {
         if (err) {
-            App.error.handle(err, err.message);
+            App.error.handle(err, 'Invalid registration data: ' + err.message);
         } else {
             Router.go('home');
         }

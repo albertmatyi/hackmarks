@@ -1,23 +1,10 @@
 .chooser {
   position: absolute;
-  top: 30%;
+  top: 20vh;
   .choice {
     text-align: center;
   }
-  @media (min-width: @screen-xs-max) {
-    .choice:first-child {
-      border-right: solid 1px @brand-primary;
-    }
-
-    .choice {
-      padding-top: 3em;
-      padding-bottom: 3em;
-    }
-  }
-  @media (max-width: @screen-xs-max) {
-    .btn {
-      margin: 1em;
-      width: 100%;
-    }
+  .help-text {
+    text-align: center;
   }
 }

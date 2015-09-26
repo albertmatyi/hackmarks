@@ -12,10 +12,10 @@ Router.route('/teams/chooser', {
     template: 'teamsChooser'
 });
 
-Template.teamsRegister.events({
+Template.teamsChooser.events({
     'submit .register.form': function (e) {
         e.preventDefault();
-        var teamName = $('.team-name').val();
+        var teamName = $('.register.form .name').val();
 
         if (!teamName || !teamName.trim()) {
             App.error.handle({}, 'Please provide a valid team name.')
@@ -24,7 +24,7 @@ Template.teamsRegister.events({
 
         App.teams.collection.insert({name: teamName}, function (err, teamId) {
             if (err) {
-                App.error.handle(err, 'Could not register team.');
+                App.error.handle(err, 'Could not register team. ' + err.message);
             } else {
                 var userId = Meteor.userId();
                 Meteor.users.update(userId, {$set: {'profile.teamId': teamId}}
@@ -39,11 +39,6 @@ Template.teamsRegister.events({
             }
         });
     }
-});
-
-Router.route('/teams/register', {
-    name: 'teamsRegister',
-    template: 'teamsRegister'
 });
 Router.route('/teams/join', {
     name: 'teamsJoin',

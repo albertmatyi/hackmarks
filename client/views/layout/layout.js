@@ -9,16 +9,22 @@ var ALLOW_URLS = {
 Router.configure({
     layoutTemplate: 'layout',
     waitOn: function () {
-        return Meteor.subscribe('users');
+        return [Meteor.subscribe('teams'), Meteor.subscribe('users')];
     },
     onBeforeAction: function () {
         var user = Meteor.user();
         if (!user) {
             this.render('login');
-        } else if (!user.profile.teamId && !ALLOW_URLS[Router.current().url]) {
-            Router.go('teamsChooser');
         } else {
-            this.next();
+            var hasTeam = user.profile.teamId && App.teams.collection.findOne(user.profile.teamId);
+            var isChoosingTeam = ALLOW_URLS[Router.current().url];
+            if (!hasTeam && !isChoosingTeam) {
+                Router.go('teamsChooser');
+            } else if (hasTeam && isChoosingTeam) {
+                Router.go('home');
+            } else {
+                this.next();
+            }
         }
     }
 });
