@@ -5,4 +5,3 @@ Meteor.publish('teams', function () {
 
     return App.teams.collection.find();
 });
-
