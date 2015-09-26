@@ -1,5 +1,5 @@
 <template name="home">
-
+    {{>menu}}
     <div class="mood" style="background-image: url({{team.image}});">
         <div class="team-name">
             @{{team.name}}
@@ -18,10 +18,10 @@
 
 <template name="teamMembers">
     <div class="team-members">
+        <div class="title">Members</div>
         {{# each teamMembers }}
-            <div class="team-member">
-                <img src="{{image}}" alt="" class="user-image"/>
-                <span class="user-name">{{name}}</span>
+            <div class="team-member col-xs-10 col-sm-4 col-md-3">
+                {{>user}}
             </div>
         {{/ each}}
     </div>

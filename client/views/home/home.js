@@ -16,3 +16,10 @@ Router.route('/', {
         }
     }
 });
+
+Template.teamMembers.helpers({
+    teamMembers: function () {
+        var userIds = this.memberIds;
+        return Meteor.users.find({_id: {$in: userIds}});
+    }
+});

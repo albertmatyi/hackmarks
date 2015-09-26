@@ -1,0 +1,31 @@
+<template name="menu">
+    <div class="menu top-bar">
+        <a href="" class="trigger btn btn-link">
+            <span class="fa fa-bars"></span>
+        </a>
+    </div>
+    <div class="menu pane-wrapper {{active}}">
+        <div class="pane">
+            <div class="pane-top">
+                {{#with user}}
+                    {{>user}}
+                {{/with}}
+                <div class="xlose btn btn-link">
+                    <span class="fa fa-times"></span>
+                </div>
+            </div>
+            <div class="elements">
+                {{# each elements }}
+                    <div class="element">
+                        <div class="element-icon">
+                            <span class="fa fa-{{icon}}"></span>
+                        </div>
+                        <div class="element-title">
+                            <div class="name"></div>
+                        </div>
+                    </div>
+                {{/ each}}
+            </div>
+        </div>
+    </div>
+</template>

@@ -19,8 +19,12 @@ App.teams.collection.allow({
         }
         return userId && doc.name;
     },
-    update: function (userId, doc) {
-        return doc.ownerId === userId;
+    update: function (userId, doc, fieldNames, modifiers) {
+        var isOwner = doc.ownerId === userId;
+        console.log(arguments);
+        var wantsToJoin = fieldNames.length == 1 && modifiers.$push.memberIds === userId;
+        //return false;
+        return isOwner || wantsToJoin;
     },
     remove: function (userId, doc) {
         return doc.ownerId === userId;
