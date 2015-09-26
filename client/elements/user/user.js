@@ -5,7 +5,7 @@ Template.user.helpers({
         return this.services &&
         this.services.twitter &&
         this.services.twitter.profile_image_url ?
-            this.services.twitter.profile_image_url : this.profile.image;
+            this.services.twitter.profile_image_url.replace(/_normal/, '_bigger') : this.profile.image;
     },
     name: function () {
         return this.profile.name;

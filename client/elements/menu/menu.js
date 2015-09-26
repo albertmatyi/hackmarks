@@ -18,10 +18,30 @@ Template.menu.events({
 });
 
 var MENU = [
-    {name: 'feed', icon: 'feed'},
-    {name: 'browse', icon: 'browse'},
-    {name: 'team', icon: 'team'},
-    {name: 'logout', icon: 'logout'}
+    {
+        name: 'Feed', icon: 'th-large',
+        handler: function () {
+            Router.go('feed');
+        }
+    },
+    {
+        name: 'Browse', icon: 'search',
+        handler: function () {
+            Router.go('browse');
+        }
+    },
+    {
+        name: 'Team', icon: 'users',
+        handler: function () {
+            Router.go('home');
+        }
+    },
+    {
+        name: 'Logout', icon: 'sign-out',
+        handler: function () {
+            Meteor.logout();
+        }
+    }
 ];
 
 Template.menu.helpers({
