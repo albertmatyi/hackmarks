@@ -1,42 +1,42 @@
 <template name="login">
-    <div class="login-pane col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-        {{! > loginButtons}}
-        <div class="row">
-            <img src="/images/logo.png" alt="" class="logo"/>
+    <div class="row">
+        <div class="login-pane col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+            {{! > loginButtons}}
+            <div class="row">
+                <img src="/images/logo.png" alt="" class="logo"/>
+            </div>
+            <form action="" class="row login form">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" class="email form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" class="password form-control"/>
+                </div>
+                {{#if register}}
+                    <div class="form-group">
+                        <input type="name" name="name" placeholder="Name" class="name form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="form-control register btn btn-primary" value="Register"/>
+                    </div>
+                    <a href="" class="cancel-register btn btn-link">
+                        Cancel
+                    </a>
+
+                {{else}}
+                    <div class="form-group">
+                        <input type="submit" class="form-control login btn btn-primary" value="Login"/>
+                    </div>
+                    <a href="" class="register btn btn-link">
+                        Register
+                    </a>
+                {{/if}}
+                <hr/>
+                <a class="twitter btn btn-success">
+                    <span class="fa fa-twitter"></span>
+                    Connect with twitter
+                </a>
+            </form>
         </div>
-        <form action="" class="row login form">
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Email" class="email form-control"/>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" placeholder="Password" class="password form-control"/>
-            </div>
-            {{#if register}}
-                <div class="form-group">
-                    <input type="name" name="name" placeholder="Name" class="name form-control"/>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="form-control register btn btn-primary" value="Register"/>
-                </div>
-                <a href="" class="cancel-register btn btn-link">
-                    Cancel
-                </a>
-
-            {{else}}
-                <div class="form-group">
-                    <input type="submit" class="form-control login btn btn-primary" value="Login"/>
-                </div>
-                <a href="" class="register btn btn-link">
-                    Register
-                </a>
-            {{/if}}
-            <hr/>
-            <a class="twitter btn btn-success">
-                <span class="fa fa-twitter"></span>
-                Connect with twitter
-            </a>
-        </form>
-
-
     </div>
 </template>

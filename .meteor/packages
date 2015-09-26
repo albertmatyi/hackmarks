@@ -30,7 +30,7 @@ iron:router
 # ccorcos:transitioner
 fortawesome:fontawesome
 
-ian:accounts-ui-bootstrap-3
+# ian:accounts-ui-bootstrap-3
 
 component
 bootstrap3-less
