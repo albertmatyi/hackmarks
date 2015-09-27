@@ -13,13 +13,33 @@
       font-size: 1.2em;
       padding: .5em;
       border-bottom: solid 1px @brand-primary;
-      &.selected {
-        background-color: @brand-primary;
-        color: white;
-      }
+      cursor: pointer;
       .btn {
         float: right;
         margin-top: -.4em;
+        display: none;
+      }
+      &.selected {
+        background-color: @brand-primary;
+        color: white;
+        .start-funding.btn {
+          display: block;
+        }
+      }
+
+    }
+    &.funding-started {
+      .team {
+        display: none;
+        &.selected {
+          display: block;
+          .stop-funding.btn {
+            display: block;
+          }
+          .start-funding.btn {
+            display: none;
+          }
+        }
       }
     }
   }

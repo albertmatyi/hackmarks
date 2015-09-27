@@ -6,16 +6,12 @@
             {{# each teams }}
                 <div class="team {{selected}}">
                     {{name}}
-                    {{#if showFundButton}}
-                        <div class="start-funding btn btn-success">
-                            Fund
-                        </div>
-                    {{/if}}
-                    {{#if showStopButton}}
-                        <div class="stop-funding btn btn-danger">
-                            Stop
-                        </div>
-                    {{/if}}
+                    <div class="start-funding btn btn-success">
+                        Fund
+                    </div>
+                    <div class="stop-funding btn btn-danger">
+                        Stop
+                    </div>
                 </div>
             {{/ each}}
         </div>

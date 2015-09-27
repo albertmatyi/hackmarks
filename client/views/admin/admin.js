@@ -23,6 +23,12 @@ Template.admin.events({
 
 Template.admin.helpers({
     selected: function () {
-        return Session.get('teams.selected') == this._id ? 'selected' : null;
+        var selected = Session.get('teams.selected') === this._id;
+        var funding = App.admin.collection.findOne('funding');
+        var funded = funding && funding.teamId === this._id;
+        return selected || funded ? 'selected' : null;
+    },
+    fundingStarted: function () {
+        return App.admin.collection.findOne('funding') ? 'funding-started' : null;
     }
 });

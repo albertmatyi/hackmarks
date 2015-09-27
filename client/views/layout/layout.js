@@ -9,7 +9,7 @@ var ALLOW_URLS = {
 Router.configure({
     layoutTemplate: 'layout',
     waitOn: function () {
-        return [Meteor.subscribe('teams'), Meteor.subscribe('users')];
+        return [Meteor.subscribe('teams'), Meteor.subscribe('users'), Meteor.subscribe('admin')];
     },
     onBeforeAction: function () {
         var user = Meteor.user();
