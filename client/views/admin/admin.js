@@ -14,10 +14,10 @@ Template.admin.events({
         Session.set('teams.selected', this._id);
     },
     'click .team .start-funding.btn': function () {
-        App.admin.collection.insert({_id: 'funding', teamId: this._id});
+        Meteor.call('admin.startFunding', this._id);
     },
     'click .team .stop-funding.btn': function () {
-        App.admin.collection.remove({_id: 'funding'});
+        Meteor.call('admin.stopFunding', this._id);
     }
 });
 
