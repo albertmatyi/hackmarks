@@ -10,6 +10,8 @@ App.teams.collection.allow({
         doc.ownerId = userId;
         doc.memberIds = [userId];
         doc.summary = DEFAULT_SUMMARY;
+        doc.tags = ['mobile-shopping', 'javascript', 'payback'];
+        doc.funds = 0;
         var idx = App.teams.collection.find().count();
         doc.image = '/images/mood/' + (idx % 30) + '.jpg'
         var existingTeam = App.teams.collection.findOne({name: doc.name});
