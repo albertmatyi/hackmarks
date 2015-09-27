@@ -1,7 +1,14 @@
 <template name="project">
     <div class="section project-summary">
-        <div class="title">Project summary</div>
-        <div class="summary">
+        <div class="title">Project summary
+            {{#if canEdit}}
+                <button class="edit btn btn-primary">
+                    <span class="fa fa-edit"></span>
+                    Edit
+                </button>
+            {{/if}}
+        </div>
+        <div class="section-body summary">
             {{#if summaryEdit}}
                 <form action="" class="summary-edit form">
                     <div class="form-group">
@@ -18,19 +25,13 @@
                 {{# markdown}}
                     {{summary}}
                 {{/markdown}}
-                {{#if canEdit}}
-                    <button class="edit btn btn-primary">
-                        <span class="fa fa-edit"></span>
-                        Edit
-                    </button>
-                {{/if}}
             {{/if}}
         </div>
 
     </div>
     <div class="section project-tags">
         <div class="title">Tags</div>
-        <div class="tags">
+        <div class="section-body tags">
             {{# each tags }}
                 <div class="tag">
                     <span class="name">{{this}}</span>
