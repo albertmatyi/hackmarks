@@ -30,8 +30,7 @@ Router.configure({
             } else {
                 Router.go('funding');
             }
-        }
-        else {
+        } else {
             var hasTeam = user.profile.teamId && App.teams.collection.findOne(user.profile.teamId);
             var isChoosingTeam = ALLOW_URLS[url];
             if (!hasTeam && !isChoosingTeam) {

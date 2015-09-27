@@ -4,16 +4,19 @@
             <div class="team-name">
                 @{{team.name}}
             </div>
-            <div class="value-wrapper">
-                <div class="value">
-                    {{team.funds}}
-                    <span class="currency">}{</span>
+            {{#unless hideCoins}}
+                <div class="value-wrapper">
+                    <div class="value">
+                        {{team.funds}}
+                        <span class="currency">}{</span>
+                    </div>
+                    <span class="small">hacker coins</span>
                 </div>
-                <span class="small">hacker coins</span>
-            </div>
+            {{/unless}}
         </div>
     </div>
-    <div class="container-virtual">
+    {{> fundRaiser}}
+    <div class="container-virtual team-props-container">
         {{#with team}}
             <div class="section team">
                 {{> teamMembers}}

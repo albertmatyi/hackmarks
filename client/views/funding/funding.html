@@ -1,5 +1,5 @@
 <template name="funding">
-    <div class="menu top-bar">
+    <div class="menu funding top-bar">
         <div class="container-virtual">
             <a href="" class="trigger btn btn-link">
                 &nbsp;
@@ -13,4 +13,18 @@
         </div>
     </div>
     {{> team}}
+</template>
+
+
+<template name="fundRaiser">
+    {{#if isEnabled}}
+        <div class="fund-raiser">
+            <div class="container-virtual">
+                <div class="promote">
+                    Specify the ammount of Hacker Coins <span class="currency">}{</span>
+                    with which you support the project of team @{{team.name}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
 </template>
