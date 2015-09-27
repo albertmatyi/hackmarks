@@ -20,11 +20,16 @@ App.teams.collection.allow({
         return userId && doc.name;
     },
     update: function (userId, doc, fieldNames, modifiers) {
-        var isOwner = doc.ownerId === userId;
+        var isMember = doc.memberIds.indexOf(userId) !== -1;
         console.log(arguments);
-        var wantsToJoin = fieldNames.length == 1 && modifiers.$push.memberIds === userId;
+        var oneField = fieldNames.length === 1;
+        var wantsToJoin = oneField && (modifiers.$push && modifiers.$push.memberIds === userId);
+        var editSummary = oneField && (modifiers.$set && modifiers.$set.summary);
+        var addTag = oneField && (modifiers.$push && modifiers.$push.tagIds);
+        var removeTag = oneField && (modifiers.$pull && modifiers.$pull.tagIds);
+        //var removeTag = oneField && modifiers.$remove.tagIds;
         //return false;
-        return isOwner || wantsToJoin;
+        return wantsToJoin || (isMember && (editSummary || addTag || removeTag));
     },
     remove: function (userId, doc) {
         return doc.ownerId === userId;

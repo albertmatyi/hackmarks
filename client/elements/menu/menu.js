@@ -19,24 +19,28 @@ Template.menu.events({
 
 var MENU = {
     feed: {
+        _id: 'feed',
         name: 'Feed', icon: 'th-large',
         handler: function () {
             Router.go('feed');
         }
     },
     browse: {
-        name: 'Browse', icon: 'search',
+        _id: 'browse',
+        name: 'Browse teams', icon: 'search',
         handler: function () {
             Router.go('browse');
         }
     },
     team: {
-        name: 'Team', icon: 'users',
+        _id: 'team',
+        name: 'My Team', icon: 'users',
         handler: function () {
             Router.go('home');
         }
     },
     logout: {
+        _id: 'logout',
         name: 'Logout', icon: 'sign-out',
         handler: function () {
             Meteor.logout();
@@ -50,12 +54,17 @@ Template.menu.helpers({
     },
     elements: function () {
         return _.map(MENU, _.identity);
+    },
+    title: function () {
+        return Session.get('menu.title');
     }
 });
 
 Template.menuElement.events({
     'click .element': function (e) {
-        MENU[this.name.toLowerCase()].handler(e);
+        var menuEl = MENU[this._id];
+        menuEl.handler(e);
         Session.set('menu.active', false);
+        Session.set('menu.title', menuEl.name);
     }
 });

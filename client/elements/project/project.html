@@ -1,0 +1,40 @@
+<template name="projectEditor">
+    <div class="section project-summary">
+        <div class="title">Project summary</div>
+        <div class="summary">
+            {{#if summaryEdit}}
+                <form action="" class="summary-edit form">
+                    <div class="form-group">
+                        <textarea name="summary" class="summary form-control">{{summary}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="save btn btn-primary form-control">
+                            <span class="fa fa-save"></span>
+                            Save
+                        </button>
+                    </div>
+                </form>
+            {{else}}
+                {{summary}}
+                <button class="edit btn btn-link">
+                    <span class="fa fa-edit"></span>
+                </button>
+            {{/if}}
+        </div>
+
+    </div>
+    <div class="section project-tags">
+        <div class="title">Tags</div>
+        <div class="tags">
+            {{# each tags }}
+                <div class="tag">
+                    <span class="name">{{this}}</span>
+
+                    <div class="remove-tag btn btn-link">
+                        <span class="fa fa-times"></span>
+                    </div>
+                </div>
+            {{/ each}}
+        </div>
+    </div>
+</template>

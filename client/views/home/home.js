@@ -8,6 +8,7 @@ Router.route('/', {
     },
     data: function () {
         var user = Meteor.user();
+        Session.set('menu.title', 'My team');
         if (user) {
             return {
                 user: user,

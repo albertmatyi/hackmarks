@@ -21,33 +21,6 @@
     {{! >schedule}}
 </template>
 
-<template name="projectEditor">
-    <div class="section project-summary">
-        <div class="title">Project summary</div>
-        <div class="summary">
-            {{summary}}
-        </div>
-
-        <button class="edit btn btn-link">
-            <span class="fa fa-edit"></span>
-        </button>
-    </div>
-    <div class="section project-tags">
-        <div class="title">Tags</div>
-        <div class="tags">
-            {{# each tags }}
-                <div class="tag">
-                    <span class="name">{{this}}</span>
-
-                    <div class="remove-tag btn btn-link">
-                        <span class="fa fa-times"></span>
-                    </div>
-                </div>
-            {{/ each}}
-        </div>
-    </div>
-</template>
-
 <template name="teamMembers">
     <div class="team-members">
         <div class="title">Members</div>
