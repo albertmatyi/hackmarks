@@ -1,0 +1,23 @@
+<template name="admin">
+    <div class="row teams-admin">
+        <div class="teams col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4 {{fundingStarted}}">
+            {{>paneLogo}}
+            <div class="title">Choose pitching team</div>
+            {{# each teams }}
+                <div class="team {{selected}}">
+                    {{name}}
+                    {{#if showFundButton}}
+                        <div class="start-funding btn btn-success">
+                            Fund
+                        </div>
+                    {{/if}}
+                    {{#if showStopButton}}
+                        <div class="stop-funding btn btn-danger">
+                            Stop
+                        </div>
+                    {{/if}}
+                </div>
+            {{/ each}}
+        </div>
+    </div>
+</template>

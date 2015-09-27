@@ -23,6 +23,7 @@ var MENU = {
         name: 'Feed', icon: 'th-large',
         handler: function () {
             Router.go('feed');
+            alert('We almost implemented the activity feed.');
         }
     },
     browse: {
@@ -30,6 +31,7 @@ var MENU = {
         name: 'Browse teams', icon: 'search',
         handler: function () {
             Router.go('browse');
+            alert('Two hamsters are still coding up this feature');
         }
     },
     team: {
