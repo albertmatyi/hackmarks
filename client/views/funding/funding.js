@@ -60,21 +60,19 @@ Template.fundRaiser.helpers({
         return supportString;
     },
     supportPerc: function () {
-        return ~~(Session.get('funding.supportPerc') * 100);
+        var supportVal = Meteor.user().profile.supportVal || 5;
+        return ~~(supportVal / 10);
     }
 });
 
 var saveSupportValue = function (supportPerc) {
-    Session.set('funding.supportPerc', supportPerc);
     var supportVal = supportPerc * 1000;
     supportVal = ~~Math.max(5, Math.min(999, supportVal));
     var userId = Meteor.userId();
     Meteor.users.update(userId, {$set: {'profile.supportVal': supportVal}});
 };
-
-Template.fundRaiser.onRendered(function () {
-    saveSupportValue(0.01);
-});
+var cancelClick;
+var incr = 57;
 
 Template.fundRaiser.events({
     'click .progress': function (e) {
@@ -83,5 +81,45 @@ Template.fundRaiser.events({
         var progressBarWidth = $bar.outerWidth();
         var supportPerc = (e.pageX - progressBarStart) / progressBarWidth;
         saveSupportValue(supportPerc);
+    },
+    'mousedown .progress': function (e) {
+        cancelClick = false;
+        var $bar = $('.progress');
+        var progressBarStart = $bar.offset().left;
+        var progressBarWidth = $bar.outerWidth();
+        var calc = function (e) {
+            cancelClick = true;
+            var supportPerc = (e.pageX - progressBarStart) / progressBarWidth;
+            saveSupportValue(supportPerc);
+        };
+        $('body').on('mousemove', calc)
+            .one('mouseup', function () {
+                $('body').off('mousemove', calc);
+            });
+    },
+    'touchstart .progress': function (e) {
+        cancelClick = false;
+        var $bar = $('.progress');
+        var progressBarStart = $bar.offset().left;
+        var progressBarWidth = $bar.outerWidth();
+        var calc = function (e) {
+            cancelClick = true;
+            var supportPerc = (e.originalEvent.touches[0].pageX - progressBarStart) / progressBarWidth;
+            saveSupportValue(supportPerc);
+        };
+        $('body').on('touchmove', calc)
+            .one('touchend', function () {
+                $('body').off('touchmove', calc);
+            });
+    },
+    'click .support-value .minus': function () {
+        var supportVal = ((Meteor.user().profile.supportVal || 5) - incr);
+        supportVal = Math.max(5, supportVal);
+        Meteor.users.update(Meteor.userId(), {$set: {'profile.supportVal': supportVal}});
+    },
+    'click .support-value .plus': function () {
+        var supportVal = ((Meteor.user().profile.supportVal || 5) + incr);
+        supportVal = Math.min(999, supportVal);
+        Meteor.users.update(Meteor.userId(), {$set: {'profile.supportVal': supportVal}});
     }
 });
