@@ -18,6 +18,13 @@ Template.admin.events({
     },
     'click .team .stop-funding.btn': function () {
         Meteor.call('admin.stopFunding', this._id);
+    },
+    'click .reset-funds.btn': function () {
+        if (confirm('Are you really sure')) {
+            if (confirm('Really really?')) {
+                Meteor.call('admin.resetFunds');
+            }
+        }
     }
 });
 

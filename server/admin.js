@@ -27,5 +27,12 @@ Meteor.methods({
         } else {
             throw new Meteor.Error('AUTH_EXCEPTION', 'User not authorized');
         }
+    },
+    'admin.resetFunds': function () {
+        if (App.admin.isAdmin(this.userId)) {
+            App.teams.collection.update({}, {$set: {funds: 0}}, {multi: true});
+        } else {
+            throw new Meteor.Error('AUTH_EXCEPTION', 'User not authorized');
+        }
     }
 });
