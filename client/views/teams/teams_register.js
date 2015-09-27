@@ -1,12 +1,5 @@
 'use strict';
 
-Template.teamsRegister.events({
-    'click .join.btn': function (e) {
-        e.preventDefault();
-
-    }
-});
-
 Router.route('/teams/register', {
     name: 'teamsRegister',
     template: 'teamsRegister'
@@ -29,6 +22,9 @@ Template.teamsRegister.events({
                 App.teams.join(teamId)
             }
         });
+    },
+    'click .logout': function () {
+        Meteor.logout();
     }
 });
 
