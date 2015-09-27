@@ -1,23 +1,5 @@
 <template name="home">
-    {{>menu}}
-    <div class="mood" style="background-image: url({{team.image}});">
-        <div class="container-virtual">
-            <div class="team-name">
-                @{{team.name}}
-            </div>
-            <div class="value-wrapper">
-                <div class="value">{{team.value}}</div>
-            </div>
-        </div>
-    </div>
-    <div class="container-virtual">
-        {{#with team}}
-            <div class="section team">
-                {{> teamMembers}}
-            </div>
-            {{> project}}
-        {{/with}}
-    </div>
+    {{> team}}
     {{! >schedule}}
 </template>
 

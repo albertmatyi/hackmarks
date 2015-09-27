@@ -5,7 +5,7 @@
             {{#if summaryEdit}}
                 <form action="" class="summary-edit form">
                     <div class="form-group">
-                        <textarea name="summary" class="summary form-control">{{summary}}</textarea>
+                        <textarea name="summary" rows="10" class="summary form-control">{{summary}}</textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="save btn btn-primary form-control">
@@ -15,10 +15,13 @@
                     </div>
                 </form>
             {{else}}
-                {{summary}}
+                {{# markdown}}
+                    {{summary}}
+                {{/markdown}}
                 {{#if canEdit}}
-                    <button class="edit btn btn-link">
+                    <button class="edit btn btn-primary">
                         <span class="fa fa-edit"></span>
+                        Edit
                     </button>
                 {{/if}}
             {{/if}}

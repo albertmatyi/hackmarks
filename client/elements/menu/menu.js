@@ -62,6 +62,7 @@ Template.menu.helpers({
 
 Template.menuElement.events({
     'click .element': function (e) {
+        e.preventDefault();
         var menuEl = MENU[this._id];
         menuEl.handler(e);
         Session.set('menu.active', false);
