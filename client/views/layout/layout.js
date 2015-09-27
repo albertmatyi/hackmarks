@@ -1,7 +1,6 @@
 'use strict';
 
 var ALLOW_URLS = {
-    '/teams/chooser': true,
     '/teams/register': true,
     '/teams/join': true
 };
@@ -26,7 +25,7 @@ Router.configure({
             var hasTeam = user.profile.teamId && App.teams.collection.findOne(user.profile.teamId);
             var isChoosingTeam = ALLOW_URLS[url];
             if (!hasTeam && !isChoosingTeam) {
-                Router.go('teamsChooser');
+                Router.go('teamsRegister');
             } else if (hasTeam && isChoosingTeam) {
                 Router.go('home');
             } else {

@@ -4,7 +4,10 @@ App.component('admin').expose({
     collection: new Meteor.Collection('admin'),
     isAdmin: function (userId) {
         var user = Meteor.users.findOne(userId);
-        return user.emails[0].address === 'admin@super.com';
+        return user &&
+            user.emails &&
+            user.emails[0] &&
+            user.emails[0].address === 'admin@super.com';
     }
 });
 

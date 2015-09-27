@@ -1,18 +1,18 @@
 'use strict';
 
-Template.teamsChooser.events({
+Template.teamsRegister.events({
     'click .join.btn': function (e) {
         e.preventDefault();
 
     }
 });
 
-Router.route('/teams/chooser', {
-    name: 'teamsChooser',
-    template: 'teamsChooser'
+Router.route('/teams/register', {
+    name: 'teamsRegister',
+    template: 'teamsRegister'
 });
 
-Template.teamsChooser.events({
+Template.teamsRegister.events({
     'submit .register.form': function (e) {
         e.preventDefault();
         var teamName = $('.register.form .name').val();
@@ -38,7 +38,7 @@ App.component('teams').expose({
         var f = function (err) {
             App.error.handle(err, 'Team registered but failed to assign to user');
             Meteor.users.update(userId, {$unset: {'profile.teamId': 1}});
-            Router.go('teamsChooser');
+            Router.go('teamsRegister');
         };
         Meteor.users.update(userId, {$set: {'profile.teamId': teamId}},
             function (err) {
