@@ -1,0 +1,21 @@
+<template name="browser">
+    {{> menu }}
+    <div class="searchbar">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+            <div class="form-group">
+                <span class="fa fa-search"></span>
+                <input type="text" class="search form-input"/>
+            </div>
+        </div>
+    </div>
+    <div class="browser">
+        <div class="container-virtual">
+            {{# each teams }}
+                <div class="team  col-xs-10 col-sm-4 col-md-3">
+                    <div class="team-image" style="background-image: url({{image}});"></div>
+                    <div class="team-name">{{name}}</div>
+                </div>
+            {{/ each}}
+        </div>
+    </div>
+</template>

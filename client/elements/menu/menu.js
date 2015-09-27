@@ -22,16 +22,16 @@ var MENU = {
         _id: 'feed',
         name: 'Feed', icon: 'th-large',
         handler: function () {
+            alert('Two hamsters are still coding on the basement on this feature');
             Router.go('feed');
-            alert('We almost implemented the activity feed.');
         }
     },
-    browse: {
-        _id: 'browse',
+    browser: {
+        _id: 'browser',
         name: 'Browse teams', icon: 'search',
         handler: function () {
-            Router.go('browse');
-            alert('Two hamsters are still coding up this feature');
+            Router.go('browser');
+            //alert('Two hamsters are still coding up this feature');
         }
     },
     team: {

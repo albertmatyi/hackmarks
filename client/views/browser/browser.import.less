@@ -1,0 +1,28 @@
+.browser {
+  margin-top: 10vh;
+  text-align: center;
+
+  .team {
+    display: inline-block;
+    float: none;
+    cursor: pointer;
+    .team-image {
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      border: solid 4px @brand-primary;
+      @media (max-width: @screen-sm-max) {
+        border: solid 2px @brand-success;
+      }
+    }
+
+    .team-name {
+      font-size: 1.2em;
+      padding-top: @padding-base-vertical;
+      padding-bottom: @padding-base-vertical;
+    }
+  }
+}

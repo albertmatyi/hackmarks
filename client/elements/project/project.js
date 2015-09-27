@@ -3,7 +3,7 @@
 var sanitize = function (tagName) {
     return tagName
         .trim()
-        .replace(/[^a-z \-]/gi, '')
+        .replace(/[^a-z1-9 \-]/gi, '')
         .replace(/\s+/, '-').toLowerCase();
 };
 Template.project.events({
