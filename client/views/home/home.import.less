@@ -1,7 +1,7 @@
 .mood {
   margin-left: -@grid-gutter-width/2;
   margin-right: -@grid-gutter-width/2;
-  min-height: 30vh;
+  min-height: 40vh;
   background-position: bottom;
   background-size: cover;
   position: relative;
@@ -9,7 +9,9 @@
     display: block;
     content: '';
     .position();
-    #gradient.vertical(fade(@gray, 0%), @gray);
+    #gradient.vertical(fade(@gray, 0%), fade(black, 80%));
+    @shadow: inset 0px -2px 3px fade(black, 100%);
+    .box-shadow(@shadow);
     z-index: 1;
   }
   .container-virtual {
@@ -24,14 +26,31 @@
   }
 }
 
-.team-members {
-  text-align: center;
+.section {
+  padding-top: @padding-base-vertical;
+  padding-bottom: @padding-base-vertical;
+  border-bottom: solid 1px @gray-lighter;
   .title {
     text-align: left;
     color: @gray-light;
     font-size: 1.3em;
     text-transform: uppercase;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      background-color: @brand-success;
+      border-radius: 50%;
+      margin-right: 1em;
+    }
   }
+}
+
+.team-members {
+  text-align: center;
   .team-member {
     display: inline-block;
     float: none;

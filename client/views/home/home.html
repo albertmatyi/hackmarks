@@ -11,22 +11,18 @@
         </div>
     </div>
     <div class="container-virtual">
-        <div class="team">
-            {{#with team}}
+        {{#with team}}
+            <div class="section team">
                 {{> teamMembers}}
-            {{/with}}
-        </div>
-        <div class="project">
-            {{# with team}}
-                {{> projectEditor}}
-            {{/with}}
-        </div>
+            </div>
+            {{> projectEditor}}
+        {{/with}}
     </div>
     {{! >schedule}}
 </template>
 
 <template name="projectEditor">
-    <div class="section">
+    <div class="section project-summary">
         <div class="title">Project summary</div>
         <div class="summary">
             {{summary}}
@@ -36,7 +32,7 @@
             <span class="fa fa-edit"></span>
         </button>
     </div>
-    <div class="section">
+    <div class="section project-tags">
         <div class="title">Tags</div>
         <div class="tags">
             {{# each tags }}
