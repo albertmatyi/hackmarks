@@ -6,7 +6,9 @@
   background-size: cover;
   background-position: center;
   border: solid 4px @brand-success;
-  //.box-shadow(1px 1px 3px @gray);
+  @media (max-width: @screen-sm-max) {
+    border: solid 2px @brand-success;
+  }
 }
 
 .user-name {
