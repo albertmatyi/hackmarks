@@ -1,15 +1,4 @@
 <template name="home">
+    {{> menu}}
     {{> team}}
-    {{! >schedule}}
-</template>
-
-<template name="teamMembers">
-    <div class="team-members">
-        <div class="title">Members</div>
-        {{# each teamMembers }}
-            <div class="team-member col-xs-10 col-sm-4 col-md-3">
-                {{>user}}
-            </div>
-        {{/ each}}
-    </div>
 </template>

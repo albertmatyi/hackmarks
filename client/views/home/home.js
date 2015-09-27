@@ -13,7 +13,7 @@ Router.route('/', {
             return {
                 user: user,
                 team: App.teams.collection.findOne(user.profile.teamId)
-            }
+            };
         }
     }
 });

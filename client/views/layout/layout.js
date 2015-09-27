@@ -5,6 +5,9 @@ var ALLOW_URLS = {
     '/teams/join': true
 };
 
+var isFunding = function () {
+    return !!App.admin.collection.findOne('funding');
+};
 Router.configure({
     layoutTemplate: 'layout',
     waitOn: function () {
@@ -21,12 +24,19 @@ Router.configure({
             } else {
                 Router.go('admin');
             }
-        } else {
+        } else if (isFunding()) {
+            if (url === '/funding') {
+                this.next();
+            } else {
+                Router.go('funding');
+            }
+        }
+        else {
             var hasTeam = user.profile.teamId && App.teams.collection.findOne(user.profile.teamId);
             var isChoosingTeam = ALLOW_URLS[url];
             if (!hasTeam && !isChoosingTeam) {
                 Router.go('teamsRegister');
-            } else if (hasTeam && isChoosingTeam) {
+            } else if ((hasTeam && isChoosingTeam) || url === '/funding') {
                 Router.go('home');
             } else {
                 this.next();
