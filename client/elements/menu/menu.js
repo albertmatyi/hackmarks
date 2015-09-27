@@ -17,39 +17,45 @@ Template.menu.events({
     }
 });
 
-var MENU = [
-    {
+var MENU = {
+    feed: {
         name: 'Feed', icon: 'th-large',
         handler: function () {
             Router.go('feed');
         }
     },
-    {
+    browse: {
         name: 'Browse', icon: 'search',
         handler: function () {
             Router.go('browse');
         }
     },
-    {
+    team: {
         name: 'Team', icon: 'users',
         handler: function () {
             Router.go('home');
         }
     },
-    {
+    logout: {
         name: 'Logout', icon: 'sign-out',
         handler: function () {
             Meteor.logout();
         }
     }
-];
+};
 
 Template.menu.helpers({
     active: function () {
         return Session.get('menu.active') ? 'active' : null;
     },
     elements: function () {
-        return MENU;
+        return _.map(MENU, _.identity);
+    }
+});
 
+Template.menuElement.events({
+    'click .element': function (e) {
+        MENU[this.name.toLowerCase()].handler(e);
+        Session.set('menu.active', false);
     }
 });

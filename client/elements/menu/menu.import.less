@@ -37,6 +37,12 @@
       background-color: @gray-dark;
       .position();
       width: 80%;
+      @media (min-width: @screen-sm-min) {
+        width: 40%;
+      }
+      @media (min-width: @screen-md-min) {
+        width: 30%;
+      }
       .transition(transform .25s ease-out);
       .translate(-100%, 0%);
       z-index: 2;

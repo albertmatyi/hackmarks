@@ -1,19 +1,55 @@
 <template name="home">
     {{>menu}}
     <div class="mood" style="background-image: url({{team.image}});">
-        <div class="team-name">
-            @{{team.name}}
-        </div>
-        <div class="value-wrapper">
-            <div class="value">{{team.value}}</div>
+        <div class="container-virtual">
+            <div class="team-name">
+                @{{team.name}}
+            </div>
+            <div class="value-wrapper">
+                <div class="value">{{team.value}}</div>
+            </div>
         </div>
     </div>
-    <div class="team">
-        {{#with team}}
-            {{> teamMembers}}
-        {{/with}}
+    <div class="container-virtual">
+        <div class="team">
+            {{#with team}}
+                {{> teamMembers}}
+            {{/with}}
+        </div>
+        <div class="project">
+            {{# with team}}
+                {{> projectEditor}}
+            {{/with}}
+        </div>
     </div>
     {{! >schedule}}
+</template>
+
+<template name="projectEditor">
+    <div class="section">
+        <div class="title">Project summary</div>
+        <div class="summary">
+            {{summary}}
+        </div>
+
+        <button class="edit btn btn-link">
+            <span class="fa fa-edit"></span>
+        </button>
+    </div>
+    <div class="section">
+        <div class="title">Tags</div>
+        <div class="tags">
+            {{# each tags }}
+                <div class="tag">
+                    <span class="name">{{this}}</span>
+
+                    <div class="remove-tag btn btn-link">
+                        <span class="fa fa-times"></span>
+                    </div>
+                </div>
+            {{/ each}}
+        </div>
+    </div>
 </template>
 
 <template name="teamMembers">
@@ -24,105 +60,5 @@
                 {{>user}}
             </div>
         {{/ each}}
-    </div>
-</template>
-
-<template name="schedule">
-    <div class="row">
-        <div class="col-lg-6">
-            <li>
-                <h2>SATURDAY (26.09.2015)</h2>
-
-                <p>Breakfast</p>
-
-                <p>10:00 - 11:00</p>
-
-                <p>Welcome Speech</p>
-
-                <p>11:00 - 11:30</p>
-
-                <p>Team Building</p>
-
-                <p>11:30 - 12:00</p>
-
-                <p>Lunch</p>
-
-                <p>12:00-14:00</p>
-
-                <p>Hacking</p>
-
-                <p>12:00 - 19:00</p>
-
-                <p>Workshop PAYBACK</p>
-
-                <p>13:00 - 14:00</p>
-
-                <p>Workshop p2pkit</p>
-
-                <p>14:00 - 15:00</p>
-
-                <p>Workshop Google</p>
-
-                <p>15:00 - 16:00</p>
-
-                <p>Workshop Dropbox</p>
-
-                <p>16:00 - 17:00</p>
-
-                <p>Workshop Clarifai</p>
-
-                <p>17:00 - 18:00</p>
-
-                <p>Workshop Stylight / Docker</p>
-
-                <p>18:00 - 19:00</p>
-
-                <p>Dinner</p>
-
-                <p>19:00 - 20:00</p>
-
-                <p>Hacking</p>
-
-                <p>20:00 - 24:00</p>
-
-                <p>Midnight Surprise</p>
-
-                <p>24:00
-                </p></li>
-
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <li>
-                    <h2>SUNDAY (27.09.2015)</h2>
-
-                    <p>Hacking</p>
-
-                    <p>00:30 - 7:00</p>
-
-                    <p>Breakfast</p>
-
-                    <p>7:00 - 9:00</p>
-
-                    <p>Hacking</p>
-
-                    <p>9:00 - 11:00</p>
-
-                    <p>Pitching (Groups)</p>
-
-                    <p>11:00 - 13:00</p>
-
-                    <p>Pitching (Final / Jury Decision)</p>
-
-                    <p>13:00 - 14:30</p>
-
-                    <p>Award Ceremony</p>
-
-                    <p>14:30 - 15:00</p>
-                </li>
-            </div>
-
-
-        </div>
     </div>
 </template>

@@ -12,12 +12,15 @@
     #gradient.vertical(fade(@gray, 0%), @gray);
     z-index: 1;
   }
-  .team-name {
-    .position(auto, auto, @padding-base-vertical, @padding-base-horizontal);
-    color: white;
-    font-size: 2em;
-    font-weight: 100;
-    z-index: 2;
+  .container-virtual {
+    .position();
+    .team-name {
+      .position(auto, auto, @padding-base-vertical, @padding-base-horizontal);
+      color: white;
+      font-size: 2em;
+      font-weight: 100;
+      z-index: 2;
+    }
   }
 }
 
