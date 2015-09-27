@@ -9,6 +9,8 @@
       font-size: 1.5em;
       padding: .5em;
       color: white;
+      z-index: 2;
+      position: relative;
     }
     .menu-title {
       .position();
@@ -17,10 +19,11 @@
       font-size: 1.3em;
       text-transform: uppercase;
       color: white;
+      z-index: 1;
     }
   }
   &.pane-wrapper {
-    .position();
+    .position(0, 0, 0, 0, fixed);
     width: 100%;
     z-index: 6;
     .translate(-100%, 0%);

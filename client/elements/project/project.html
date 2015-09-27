@@ -1,4 +1,4 @@
-<template name="projectEditor">
+<template name="project">
     <div class="section project-summary">
         <div class="title">Project summary</div>
         <div class="summary">
@@ -16,9 +16,11 @@
                 </form>
             {{else}}
                 {{summary}}
-                <button class="edit btn btn-link">
-                    <span class="fa fa-edit"></span>
-                </button>
+                {{#if canEdit}}
+                    <button class="edit btn btn-link">
+                        <span class="fa fa-edit"></span>
+                    </button>
+                {{/if}}
             {{/if}}
         </div>
 
@@ -29,12 +31,27 @@
             {{# each tags }}
                 <div class="tag">
                     <span class="name">{{this}}</span>
-
-                    <div class="remove-tag btn btn-link">
-                        <span class="fa fa-times"></span>
-                    </div>
+                    {{#if canEdit .. }}
+                        <div class="remove-tag btn btn-link" data-team-id="{{../_id}}">
+                            <span class="fa fa-times"></span>
+                        </div>
+                    {{/if}}
                 </div>
             {{/ each}}
+            {{#if canEdit}}
+                <form class="tag-form form">
+                    <div class="form-group">
+                        <input type="text" class="tag-input form-control"
+                               placeholder="fintech / mobile shopping / tech / hardware"/>
+                    </div>
+                    <div class="form-group">
+                        <button class="add btn btn-primary form-control">
+                            <span class="fa fa-plus"></span>
+                            Add tag
+                        </button>
+                    </div>
+                </form>
+            {{/if}}
         </div>
     </div>
 </template>

@@ -25,10 +25,8 @@ App.teams.collection.allow({
         var oneField = fieldNames.length === 1;
         var wantsToJoin = oneField && (modifiers.$push && modifiers.$push.memberIds === userId);
         var editSummary = oneField && (modifiers.$set && modifiers.$set.summary);
-        var addTag = oneField && (modifiers.$push && modifiers.$push.tagIds);
-        var removeTag = oneField && (modifiers.$pull && modifiers.$pull.tagIds);
-        //var removeTag = oneField && modifiers.$remove.tagIds;
-        //return false;
+        var addTag = oneField && (modifiers.$push && modifiers.$push.tags);
+        var removeTag = oneField && (modifiers.$pull && modifiers.$pull.tags);
         return wantsToJoin || (isMember && (editSummary || addTag || removeTag));
     },
     remove: function (userId, doc) {
